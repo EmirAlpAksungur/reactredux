@@ -1,22 +1,25 @@
-const chartState = [{
-    title:"",
-    subtitle:"",
-    xTitle:"",
-    yTitle:"",
-}]
 
-const chartReducer = (state = chartState, action) => {
-    switch (action.type) {
-        case "ADD_CHART":
-            console.log(...state,
-                action.chartData);
-            return ([
-                ...state,
-                action.chartData
-            ])
-        default:
-            return state
-    }
-}
+import { createSlice } from '@reduxjs/toolkit'
 
-export default chartReducer;
+export const chartReducer = createSlice({
+    name: 'charts',
+    initialState: {
+      value: []
+    },
+    reducers: {
+    add: (state,a) => {
+      console.log( ...state.value,
+        a.payload);
+      state.value = [
+      ...state.value,
+      a.payload
+      ]
+    },
+
+  },
+})
+
+// Action creators are generated for each case reducer function
+export const { add } = chartReducer.actions
+
+export default chartReducer.reducer

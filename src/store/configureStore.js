@@ -1,6 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from "../reducers";
-import thunk from 'redux-thunk';
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-export default createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+import { configureStore } from '@reduxjs/toolkit'
+import chartReducer from '../reducers/charts'
+import chartDataReducer from '../reducers/chartData'
+export default configureStore({
+  reducer: {
+    charts:chartReducer,
+    chartData:chartDataReducer,
+  },
+})
