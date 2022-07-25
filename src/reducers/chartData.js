@@ -5,13 +5,13 @@ export const chartDataReducer = createSlice({
     name: 'charts',
     initialState: {
       value: {
-        title:"asd",
+        title:"",
         subtitle:"",
         xTitle:"",
         yTitle:"",
         data:[
             {
-                key:"asd",
+                key:"",
                 data:""
             }
         ]
@@ -42,20 +42,14 @@ export const chartDataReducer = createSlice({
             state.value.data.push({key:"",data:""})
             break;
           case("delData"):
-            state.value.data.splice([a.payload[2]],1)
+            state.value.data.splice(a.payload[2],1)
             break;
-          default:
-                  
+          default:     
         }
-
-      
     },
-
   },
-
 })
 
-// Action creators are generated for each case reducer function
 export const { dataUpdate } = chartDataReducer.actions
 
 export default chartDataReducer.reducer

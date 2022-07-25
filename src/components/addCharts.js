@@ -7,24 +7,24 @@ const AddCharts = () => {
     const dispatch = useDispatch()
   return (
     <div>
-        <form action="">
-            <label htmlFor="">Chart Title</label>
-            <input type="text" onChange={(e)=>{
+        <form>
+            <label>Chart Title</label>
+            <input type="text" value={chart.title} onChange={(e)=>{
                 dispatch(dataUpdate(["title",e.target.value]))
             }}/>
             <br />
-            <label htmlFor="">Chart Subtitle</label>
-            <input type="text" onChange={(e)=>{
+            <label>Chart Subtitle</label>
+            <input type="text" value={chart.subtitle} onChange={(e)=>{
                 dispatch(dataUpdate(["subtitle",e.target.value]))
             }}/>
             <br />
-            <label htmlFor="">X Title</label>
-            <input type="text" onChange={(e)=>{
+            <label>X Title</label>
+            <input type="text" value={chart.xTitle} onChange={(e)=>{
                  dispatch(dataUpdate(["xTitle",e.target.value]))
             }}/>
             <br />
-            <label htmlFor="">Y Title</label>
-            <input type="text" onChange={(e)=>{
+            <label>Y Title</label>
+            <input type="text" value={chart.yTitle} onChange={(e)=>{
                 dispatch(dataUpdate(["yTitle",e.target.value]))
             }}/>
             <br />
@@ -34,11 +34,11 @@ const AddCharts = () => {
                 return(
                 <div key={i}>
                     <label htmlFor="">Add Key</label>
-                    <input type="text"onChange={(a)=>{
+                    <input type="text" value={chart.data[i].key} onChange={(a)=>{
                         dispatch(dataUpdate(["dataKey",a.target.value,i]))
                     }} />
                     <label htmlFor="">Add value</label>
-                    <input type="text" onChange={(a)=>{
+                    <input type="text" value={chart.data[i].data} onChange={(a)=>{
                          dispatch(dataUpdate(["dataData",a.target.value,i]))
                     }}/>
                     <button onClick={(a)=>{
